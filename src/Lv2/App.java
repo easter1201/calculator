@@ -37,7 +37,7 @@ public class App {
                         System.out.println("Record " + (i + 1) + " : " + record[i]);
                     }
                 }
-                else if(order.equals("delete")){
+                else if(order.equals("delete")){ //setter 사용-제거 기능
                     calc.deleteRecord();
                     System.out.println("최근 기록 1개가 제거되었습니다.");
                 }
