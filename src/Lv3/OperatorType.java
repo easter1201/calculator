@@ -23,7 +23,7 @@ public enum OperatorType {
         return null;
     }
 
-    public long calculate(long x, long y){
+    public double calculate(Double x, Double y){
         if(PLUS.getOperator() == this.getOperator()){
             return x + y;
         }

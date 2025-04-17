@@ -2,25 +2,33 @@ package Lv3;
 
 import java.util.*;
 
-public class ArithmeticCalculator {
+public class ArithmeticCalculator<T> {
     private List<String> record = new ArrayList<>(); //연산결과 저장소, 캡슐화
 
-    public String calculate(long x, long y, char operate){ //연산
+    public <T extends Number> String calculate(T x, T y, char operate) throws ArithmeticException{ //연산
         OperatorType ot = OperatorType.checkOperator(operate);
 
-        long result = ot.calculate(x, y);
+        double result;
+        double xValue = x.doubleValue();
+        double yValue = y.doubleValue();
         String recordValue = "";
         switch(operate){
             case '+':
+                result = xValue + yValue;
                 recordValue = x + " + " + y + " = " + result;
                 break;
             case '-':
+                result = xValue - yValue;
                 recordValue = x + " - " + y + " = " + result;
                 break;
             case '*':
+                result = xValue * yValue;
                 recordValue = x + " * " + y + " = " + result;
                 break;
             case '/':
+                if(yValue == 0) throw new ArithmeticException("0은 분모가 될 수 없습니다.");
+
+                result = xValue / yValue;
                 recordValue = x + " / " + y + " = " + result;
                 break;
         }

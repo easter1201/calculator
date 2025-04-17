@@ -35,7 +35,7 @@ public class App {
     public static void main(String[] args) {
         OperatorType calc = null;
         Scanner sc = new Scanner(System.in); //스캐너 호출
-        ArithmeticCalculator ac = new ArithmeticCalculator();
+        ArithmeticCalculator<Double> ac = new ArithmeticCalculator<>();
         boolean flag = true;
 
         System.out.println("Calculator");
@@ -43,7 +43,8 @@ public class App {
             System.out.println("0 이상의 정수 1개를 입력하세요.");
 
             try{
-                long x = sc.nextLong();
+                double x = sc.nextDouble();
+
                 char operate = ' ';
                 while(true) {
                     System.out.println("'+', '-', '*', '/' 중 하나의 연산자를 입력하세요.");
@@ -54,7 +55,7 @@ public class App {
                 }
 
                 System.out.println("0 이상의 정수 1개를 입력하세요.");
-                long y = sc.nextLong();
+                double y = sc.nextDouble();
 
                 String result = ac.calculate(x, y, operate);
 
@@ -62,6 +63,8 @@ public class App {
 
                 flag = Display(sc, ac);
 
+            } catch(ArithmeticException ae){
+                System.out.println("0은 분모가 될 수 없습니다.");
             }catch(Exception e){ //잘못 입력 시 에러 메시지 출력, 초기화
                 System.out.println("잘못된 입력입니다.");
                 sc = new Scanner(System.in);
