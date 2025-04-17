@@ -22,20 +22,4 @@ public enum OperatorType {
         }
         return null;
     }
-
-    public double calculate(Double x, Double y){
-        if(PLUS.getOperator() == this.getOperator()){
-            return x + y;
-        }
-        else if(MINUS.getOperator() == this.getOperator()){
-            return x - y;
-        }
-        else if(MULTIPLY.getOperator() == this.getOperator()){
-            return x * y;
-        }
-        else{
-            if(y == 0) throw new ArithmeticException("0은 분모가 될 수 없습니다.");
-            return x / y;
-        }
-    }
 }
