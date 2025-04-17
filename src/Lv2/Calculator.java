@@ -3,7 +3,7 @@ package Lv2;
 import java.util.*;
 
 public class Calculator {
-    private ArrayList<String> record = new ArrayList<>(); //연산결과 저장소, 캡슐화
+    private List<String> record = new ArrayList<>(); //연산결과 저장소, 캡슐화
 
     public long calculate(long x, long y, char operate){ //연산
         long result = 0;
