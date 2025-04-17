@@ -42,7 +42,12 @@ public class Calculator {
         this.record.add(input);
     }
 
-    public void deleteRecord(){
-        this.record.remove(this.record.size() - 1);
+    public boolean deleteRecord(){ //기록이 남아있을 경우에만 삭제 진행
+        boolean del = false;
+        if(this.record.size() != 0) {
+            this.record.remove(this.record.size() - 1);
+            del = true;
+        }
+        return del;
     }
 }

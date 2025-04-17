@@ -2,26 +2,31 @@ package Lv2;
 
 import java.util.*;
 
-
 public class App {
     public static boolean Display(Scanner sc,Calculator calc){ //결과 이후 출력
         while(true){
-            System.out.println("종료를 원한다면 'exit'을, 기록을 보고싶다면 'record'를, 기록 삭제를 원한다면 'delete'를, 추가 계산을 원한다면 아무 키나 입력하세요.");
+            System.out.println("\n종료를 원한다면 'exit'을, 기록을 보고싶다면 'record'를, 기록 삭제를 원한다면 'delete'를, 추가 계산을 원한다면 아무 키나 입력하세요.");
             String order = sc.next();
 
             if(order.equals("exit")){ //계산기 종료
-                System.out.println("계산기가 종료됩니다.");
+                System.out.println("\n계산기가 종료됩니다.");
+                sc.close();
                 return false;
             }
             else if(order.equals("record")){ //getter 사용 - 기록 확인
                 String[] record = calc.getRecord();
-                for(int i = 0; i < record.length; i++){
-                    System.out.println("Record " + (i + 1) + " : " + record[i]);
+                if(record.length == 0) System.out.println("\n기록이 없습니다.");
+                else {
+                    System.out.println("\n이전 기록");
+                    for (int i = 0; i < record.length; i++) {
+                        System.out.println("Record " + (i + 1) + " : " + record[i]);
+                    }
                 }
             }
             else if(order.equals("delete")){ //삭제 메소드 활용
-                calc.deleteRecord();
-                System.out.println("최근 기록 1개가 제거되었습니다.");
+                boolean isDel = calc.deleteRecord();
+                if(isDel) System.out.println("\n최근 기록 1개가 제거되었습니다.");
+                else System.out.println("\n제거할 기록이 없습니다.");
             }
             else return true;
         }
