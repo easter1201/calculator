@@ -53,7 +53,7 @@ public class App {
         }
     }
 
-    public static void main(String[] args) {         //연산자 관리하는 Enum 호출
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);                                            //스캐너 호출
         ArithmeticCalculator<Double> ac = new ArithmeticCalculator<>();                 //계산 클래스 호출, 제네릭 사용
         boolean flag = true;                                                            //종료 여부 판별 위한 flag
