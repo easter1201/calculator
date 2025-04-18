@@ -28,6 +28,9 @@ public class App {
                 if(isDel) System.out.println("\n최근 기록 1개가 제거되었습니다.");
                 else System.out.println("\n제거할 기록이 없습니다.");
             }
+            else if(order.equals("search")){
+
+            }
             else return true;
         }
     }
