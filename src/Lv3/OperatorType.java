@@ -1,6 +1,6 @@
 package Lv3;
 
-public enum OperatorType {
+public enum OperatorType {                                      //연산자 타입 관리
     PLUS('+'),
     MINUS('-'),
     MULTIPLY('*'),
@@ -16,10 +16,10 @@ public enum OperatorType {
         return this.operator;
     }
 
-    public static OperatorType checkOperator(char operator){
+    public static OperatorType checkOperator(char operator){   //연산자 확인 후 반환
         for(OperatorType ot : OperatorType.values()){
             if(ot.operator == operator) return ot;
         }
-        return null;
+        return null;                                           //맞지 않을 경우 null 반환
     }
 }
