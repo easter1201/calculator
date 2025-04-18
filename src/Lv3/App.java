@@ -3,9 +3,9 @@ package Lv3;
 import java.util.Scanner;
 
 public class App {
-    public static boolean Display(Scanner sc, ArithmeticCalculator calc){ //결과 이후 출력
+    public static boolean DisplayMenu(Scanner sc, ArithmeticCalculator calc){ //결과 이후 출력
         while(true){
-            System.out.println("\n종료를 원한다면 'exit'을, 기록을 보고싶다면 'record'를, 기록 삭제를 원한다면 'delete'를, 추가 계산을 원한다면 아무 키나 입력하세요.");
+            System.out.println("\n종료를 원한다면 'exit'을, 기록을 보고싶다면 'record'를, 기록 삭제를 원한다면 'delete'를,\n이전 결과에서 특정 값 이상의 결과만 찾고 싶다면 'search'를, 추가 계산을 원한다면 아무 키나 입력하세요.");
             String order = sc.next();
 
             if(order.equals("exit")){ //계산기 종료
@@ -29,7 +29,13 @@ public class App {
                 else System.out.println("\n제거할 기록이 없습니다.");
             }
             else if(order.equals("search")){
+                System.out.println("\n기준값을 입력해 주세요.");
+                double searchOrder = sc.nextDouble();
 
+                String searchedValue = calc.searchRecord(searchOrder);
+
+                System.out.println("\n기준값 "+ searchOrder + "보다 결과값이 큰 계산");
+                System.out.println(searchedValue);
             }
             else return true;
         }
@@ -64,7 +70,7 @@ public class App {
 
                 System.out.println("연산 결과: " + result);
 
-                flag = Display(sc, ac);
+                flag = DisplayMenu(sc, ac);
 
             } catch(ArithmeticException ae){
                 System.out.println("0은 분모가 될 수 없습니다.");

@@ -62,7 +62,12 @@ public class ArithmeticCalculator<T> {
         return del;
     }
 
-    public String[] searchRecord(){
-        return null;
+    public String searchRecord(double searchOrder){
+        String result = "";
+        for(Map.Entry<String, Double> entry : this.record.entrySet()){
+            if(entry.getValue() > searchOrder) result += entry.getKey() + "\n";
+        }
+        if(result == "") result = "*계산 기록이 존재하지 않습니다.*";
+        return result;
     }
 }
