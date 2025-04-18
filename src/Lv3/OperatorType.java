@@ -13,7 +13,7 @@ public enum OperatorType {
     }
 
     public char getOperator(){
-        return operator;
+        return this.operator;
     }
 
     public static OperatorType checkOperator(char operator){

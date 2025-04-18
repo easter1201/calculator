@@ -1,6 +1,6 @@
 package Lv3;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     public static boolean DisplayMenu(Scanner sc, ArithmeticCalculator calc){ //결과 이후 출력
@@ -32,10 +32,15 @@ public class App {
                 System.out.println("\n기준값을 입력해 주세요.");
                 double searchOrder = sc.nextDouble();
 
-                String searchedValue = calc.searchRecord(searchOrder);
+                List<String> searchedValue = calc.searchRecord(searchOrder);
 
                 System.out.println("\n기준값 "+ searchOrder + "보다 결과값이 큰 계산");
-                System.out.println(searchedValue);
+                if(searchedValue.size() != 0) {
+                    for (String value : searchedValue) {
+                        System.out.println(value);
+                    }
+                }
+                else System.out.println("*조건에 맞는 기록이 없습니다.*");
             }
             else return true;
         }

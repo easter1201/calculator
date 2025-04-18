@@ -1,7 +1,7 @@
 package Lv3;
 
 import java.util.*;
-
+import java.util.stream.*;
 public class ArithmeticCalculator<T> {
     private Map<String, Double> record = new LinkedHashMap<>(); //연산결과 저장소, 캡슐화
 
@@ -62,12 +62,10 @@ public class ArithmeticCalculator<T> {
         return del;
     }
 
-    public String searchRecord(double searchOrder){
-        String result = "";
-        for(Map.Entry<String, Double> entry : this.record.entrySet()){
-            if(entry.getValue() > searchOrder) result += entry.getKey() + "\n";
-        }
-        if(result == "") result = "*계산 기록이 존재하지 않습니다.*";
-        return result;
+    public List<String> searchRecord(double searchOrder){
+        return this.record.entrySet().stream()
+                .filter(entry -> entry.getValue() > searchOrder)
+                .map(Map.Entry :: getKey)
+                .collect(Collectors.toList());
     }
 }
