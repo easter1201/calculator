@@ -41,12 +41,14 @@ public class App {
             System.out.println("0 이상의 정수 1개를 입력하세요.");
             try { //정수가 아닌 다른 수 입력 시 예외처리
                 long x = sc.nextLong();
+                if(x < 0) throw new Exception();
                 System.out.println("'+', '-', '*', '/' 중 하나의 연산자를 입력하세요.");
 
                 char operate = sc.next().charAt(0);
                 if(operate == '+' || operate == '-'|| operate == '*' || operate == '/') { //연산자가 아닌 다른 문자 입력 시 예외처리
                     System.out.println("0 이상의 정수 1개를 입력하세요.");
                     long y = sc.nextLong();
+                    if(y < 0) throw new Exception();
                     if (operate == '/' && y == 0) System.out.println("0은 분모가 될 수 없습니다."); //분모 0인경우 예외처리
                     else {
                         System.out.println("연산 결과: " + calc.calculate(x, y, operate)); //연산 출력, setter 사용
@@ -57,8 +59,10 @@ public class App {
                 flag = Display(sc, calc); //후속 행동 위한 출력
 
             } catch(InputMismatchException e){ //잘못 입력 시 에러 메시지 출력, 초기화
-                System.out.println("잘못된 입력입니다.");
+                System.out.println("입력된 값은 0 이상의 정수가 아닙니다.");
                 sc = new Scanner(System.in);
+            } catch(Exception e){
+                System.out.println("정수는 0 이상이어야 합니다.");
             }
         }
     }
