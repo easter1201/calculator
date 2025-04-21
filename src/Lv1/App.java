@@ -45,6 +45,6 @@ public class App {
                     System.out.println("잘못된 입력입니다.");
                     sc = new Scanner(System.in);
                 }
-            }
         }
+    }
 }
