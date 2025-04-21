@@ -17,6 +17,12 @@ public class App {
         System.out.println("---------------------------------------");
     }
 
+    public static void DisplayTitle(){
+        System.out.println("\n=======================================");
+        System.out.println("              Calculator");
+        System.out.print("=======================================");
+    }
+
     public static void DecorateMenu(){
         System.out.println("\n===========명령어를 작성해주세요===========");
         System.out.println("계산기 종료 : 'exit'");
@@ -73,7 +79,8 @@ public class App {
         ArithmeticCalculator<Double> ac = new ArithmeticCalculator<>();                 //계산 클래스 호출, 제네릭 사용
         boolean flag = true;                                                            //종료 여부 판별 위한 flag
 
-        System.out.println("Calculator");
+        DisplayTitle();
+
         while (flag) {                                                                  //연산 반복
             DecorateDisplay("0 이상의 정수 1개를 입력하세요.");
 
