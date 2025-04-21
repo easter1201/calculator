@@ -10,11 +10,13 @@ public class App {
             System.out.println("0 이상의 정수 1개를 입력하세요.");
             try {
                 long x = sc.nextLong();
+                if(x < 0) throw new Exception("정수는 0 이상이어야 합니다.");
                 System.out.println("'+', '-', '*', '/' 중 하나의 연산자를 입력하세요.");
                 char operate = sc.next().charAt(0);
                 if(operate == '+' || operate == '-'|| operate == '*' || operate == '/') {
                     System.out.println("0 이상의 정수 1개를 입력하세요.");
                     long y = sc.nextLong();
+                    if(y < 0) throw new Exception("정수는 0 이상이어야 합니다.");
                     if (operate == '/' && y == 0) {
                         System.out.println("0은 분모가 될 수 없습니다.");
                     } else {
@@ -44,7 +46,9 @@ public class App {
                 }catch(InputMismatchException e){
                     System.out.println("잘못된 입력입니다.");
                     sc = new Scanner(System.in);
-                }
+                }catch(Exception e){
+                    System.out.println("정수는 0 이상이어야 합니다.");
+            }
         }
     }
 }
