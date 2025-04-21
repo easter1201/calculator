@@ -54,7 +54,7 @@ public class ArithmeticCalculator<T> {
         return output;
     }
 
-    public void setRecord(String recordValue, Double result){                                     //기록 추가
+    private void setRecord(String recordValue, Double result){                                     //기록 추가
         this.record.put(recordValue, result);                                                     //Key에는 기록 번호 포함한 전체 수식, value에는 단순 결과값만 저장
     }
 
