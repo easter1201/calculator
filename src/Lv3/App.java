@@ -106,7 +106,7 @@ public class App {
                     else break;                                                         //올바른 연산자일 때 탈출
                 }
 
-                double y = readNumber(sc);
+                double y = readNumber(sc);                                              //두 번째 수 입력
 
                 String result = ac.calculate(x, y, operator);                            //연산
 
