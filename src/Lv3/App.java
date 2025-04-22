@@ -79,9 +79,7 @@ public class App {
             DecorateDisplay("숫자 1개를 입력하세요.");
             String[] input = sc.nextLine().split(" ");
             if (input.length > 1) DecorateDisplay("*숫자를 1개만 입력하세요.*");
-            else {
-                return Double.parseDouble(input[0]);
-            }
+            else return Double.parseDouble(input[0]);
         }
     }
 
